@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Radiografía de Chrome DevTools</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <header class="cabecera">
+    <h1>Radiografía de Chrome DevTools</h1>
+    <p class="subtitulo">Las herramientas de desarrollo integradas en Google Chrome</p>
+  </header>
+
+  <main class="contenido">
+    <section id="que-es" class="bloque" aria-labelledby="titulo-que-es">
+      <h2 id="titulo-que-es">¿Qué es Chrome DevTools?</h2>
+      <p>
+        Chrome DevTools es un conjunto de herramientas para desarrolladores web integrado
+        directamente en el navegador Google Chrome. Permite inspeccionar y modificar el HTML y
+        el CSS en tiempo real, depurar JavaScript, analizar las peticiones de red y medir el
+        rendimiento de una página sin instalar nada adicional.
+      </p>
+      <button type="button" id="btn-saludo" class="boton">Probar la consola</button>
+    </section>
+
+    <section id="cliente-servidor" class="bloque" aria-labelledby="titulo-cliente-servidor">
+      <h2 id="titulo-cliente-servidor">Cliente y servidor</h2>
+      <p>
+        El servidor local se limita a entregar archivos estáticos: <code>index.html</code>, la hoja
+        de estilos y los módulos JavaScript. El cliente (el navegador) interpreta el HTML, aplica
+        el CSS, descarga los módulos que importa <code>main.js</code> y ejecuta todo el código de
+        interacción: eventos, generación de tarjetas y filtrado. En la pestaña <strong>Red</strong>
+        de DevTools se comprueba que cada archivo se pide al servidor y responde con estado 200.
+      </p>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <p>Desarrollo Web en Entorno Cliente · 2.º DAW · Tema 5</p>
+  </footer>
+</body>
+</html>
