@@ -28,6 +28,38 @@
       </p>
     </section>
 
+    <section id="ampliada" class="bloque" aria-labelledby="titulo-ampliada">
+      <h2 id="titulo-ampliada">Información ampliada</h2>
+      <button type="button" id="btn-ampliada" class="boton"
+              aria-expanded="false" aria-controls="info-ampliada">
+        Mostrar información ampliada
+      </button>
+
+      <div id="info-ampliada" class="desplegable oculto">
+        <h3>Cómo abrir DevTools</h3>
+        <ul>
+          <li>Tecla <kbd>F12</kbd> o <kbd>Ctrl</kbd> + <kbd>Mayús</kbd> + <kbd>I</kbd> (en macOS, <kbd>Cmd</kbd> + <kbd>Opción</kbd> + <kbd>I</kbd>).</li>
+          <li>Clic derecho sobre cualquier elemento y elegir <em>Inspeccionar</em>.</li>
+          <li>Menú de Chrome → <em>Más herramientas</em> → <em>Herramientas para desarrolladores</em>.</li>
+        </ul>
+
+        <h3>Ventajas</h3>
+        <ul>
+          <li>Viene incluido en Chrome: no requiere instalación.</li>
+          <li>Los cambios en HTML y CSS se ven al instante, sin recargar la página.</li>
+          <li>Permite depurar JavaScript con puntos de interrupción en lugar de llenar el código de <code>console.log</code>.</li>
+          <li>Ayuda a detectar problemas de rendimiento, accesibilidad y red antes de publicar.</li>
+        </ul>
+
+        <h3>Extensiones que lo amplían</h3>
+        <ul>
+          <li><strong>React Developer Tools</strong> y <strong>Vue.js devtools</strong>: añaden paneles para inspeccionar componentes.</li>
+          <li><strong>Lighthouse</strong>: viene integrado y genera auditorías de calidad de la página.</li>
+          <li><strong>axe DevTools</strong>: análisis de accesibilidad más detallado.</li>
+        </ul>
+      </div>
+    </section>
+
     <section id="cliente-servidor" class="bloque" aria-labelledby="titulo-cliente-servidor">
       <h2 id="titulo-cliente-servidor">Cliente y servidor</h2>
       <p>

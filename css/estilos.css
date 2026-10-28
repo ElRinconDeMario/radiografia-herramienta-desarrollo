@@ -98,3 +98,23 @@ code {
   border-left: 4px solid var(--color-primario);
   border-radius: 4px;
 }
+
+/* Fase B: mostrar y ocultar */
+.oculto {
+  display: none;
+}
+
+.desplegable {
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+  border-top: 1px dashed var(--color-borde);
+}
+
+kbd {
+  padding: 0.05rem 0.35rem;
+  font-family: inherit;
+  font-size: 0.9em;
+  background: #f1f3f4;
+  border: 1px solid var(--color-borde);
+  border-radius: 4px;
+}
