@@ -1,58 +1,47 @@
-# Radiografía de una herramienta de desarrollo: Chrome DevTools
+# Radiografía de Chrome DevTools
 
-Página informativa sobre **Chrome DevTools**, las herramientas para desarrolladores integradas en Google Chrome.
-Sirven para inspeccionar y editar HTML y CSS en vivo, depurar JavaScript, analizar la red y medir el rendimiento.
-La interacción está hecha solo con JavaScript y la API DOM del navegador, sin frameworks ni bibliotecas.
-
-Práctica del Tema 5 de *Desarrollo Web en Entorno Cliente* (2.º DAW).
+En esta práctica he hecho una página sobre **Chrome DevTools**, las herramientas para desarrolladores que vienen en Google Chrome.
+Es la continuación de la radiografía del tema anterior, y ahora tiene interacción con JavaScript.
+No he usado ningún framework ni librería, solo la API del DOM.
 
 ## Cómo ejecutarla
 
-La página usa módulos ES (`<script type="module">`), así que **hay que abrirla desde un servidor local**.
-Si se abre con doble clic (`file://`), el navegador bloquea los módulos.
+Los scripts se cargan como módulos (`type="module"`), así que la página no funciona si se abre con doble clic.
+Hay que abrirla desde un servidor local. Yo lo hago de una de estas dos formas:
 
-**Opción 1: Python**
-
-```bash
-python -m http.server 8000
-```
-
-Después abre <http://localhost:8000> en el navegador.
-
-**Opción 2: Visual Studio Code**
-
-Instala la extensión *Live Server*, haz clic derecho en `index.html` y elige **Open with Live Server**.
+- **Con Python:** desde la carpeta del proyecto ejecuto `python -m http.server 8000` y abro http://localhost:8000
+- **Con VS Code:** con la extensión Live Server, clic derecho en `index.html` y luego "Open with Live Server".
 
 ## Estructura
 
 ```
-index.html          Estructura semántica (header, main, footer)
-css/estilos.css     Estilos
-js/main.js          Punto de entrada: selecciona elementos y registra los eventos
-js/datos.js         Array de características (nombre, categoría, descripción)
-js/interfaz.js      Funciones que modifican el DOM
+index.html
+css/estilos.css
+js/main.js        selecciona los elementos y registra los eventos
+js/datos.js       el array con los paneles de DevTools
+js/interfaz.js    las funciones que cambian el DOM
 README.md
 ```
 
-## Funcionalidades añadidas
+## Qué he añadido
 
-- **Fase A, mensaje en la página:** el botón «Probar la consola» tiene dos manejadores `click` registrados con `addEventListener`.
-  Uno actualiza un mensaje visible con `textContent` y el otro registra la interacción en la consola.
-- **Fase B, mostrar y ocultar:** el botón «Mostrar información ampliada» alterna la clase `oculto` con `classList.toggle`.
-  Así se muestra u oculta la sección de instalación, ventajas y extensiones, y el botón actualiza su texto y `aria-expanded`.
-- **Fase C, contenido generado:** las 8 tarjetas se crean desde el array de `datos.js` con `createElement`, `textContent` y `append`.
-  No están escritas en el HTML.
-- **Fase D, búsqueda:** el campo «Buscar por nombre o descripción» filtra las tarjetas mientras se escribe, sin distinguir mayúsculas ni tildes.
-  Muestra un contador de resultados y un aviso cuando no hay coincidencias.
+- **Fase A:** el botón "Probar la consola" tiene dos manejadores de `click`.
+  Uno cambia el mensaje de la página con `textContent` y el otro escribe en la consola.
+- **Fase B:** el botón "Ver más información" enseña u oculta una sección con cómo abrir DevTools, sus ventajas y algunas extensiones.
+  Uso `classList.toggle` y voy cambiando el texto del botón y el `aria-expanded`.
+- **Fase C:** los paneles (Elementos, Consola, Red...) están en un array de objetos en `datos.js`.
+  Las tarjetas se crean desde JavaScript con `createElement`, `textContent` y `append`.
+- **Fase D:** hay un buscador que filtra las tarjetas mientras escribes, por nombre o por descripción.
+  Da igual si escribes con mayúsculas o sin tildes, y si no encuentra nada sale un mensaje avisando.
 
-Todos los controles son botones o campos de formulario nativos, así que la página se puede usar entera con el teclado.
+Todo se puede usar con el teclado porque solo hay botones y campos de formulario normales.
 
 ## Cliente y servidor
 
-El servidor local solo entrega archivos estáticos: `index.html`, `estilos.css` y los módulos `main.js`, `datos.js` e `interfaz.js`.
-El cliente (el navegador) interpreta el HTML, aplica el CSS y descarga los módulos que importa `main.js`.
-Después ejecuta todo el JavaScript: registra los eventos, genera las tarjetas y filtra la búsqueda sin pedir nada más al servidor.
-Para comprobarlo abrí DevTools → pestaña **Red**, marqué *Desactivar caché* y recargué la página.
-Aparecen las peticiones del documento, la hoja de estilos y los tres scripts de tipo módulo, todas con estado **200**, y la consola no muestra errores.
+El servidor solo entrega los archivos: el HTML, el CSS y los tres módulos de JavaScript.
+El navegador es el que hace todo lo demás: monta la página, aplica los estilos y ejecuta el código de los eventos, las tarjetas y el buscador.
+Para comprobar que todo cargaba bien abrí DevTools, fui a la pestaña Red, marqué "Desactivar caché" y recargué.
+Salen las peticiones de `index.html`, `estilos.css`, `main.js`, `datos.js` e `interfaz.js`, todas con estado 200.
+En la consola no aparece ningún error.
 
-![Pestaña Red con las peticiones de HTML, CSS y módulos JS](docs/captura-red.png)
+![Pestaña Red](docs/captura-red.png)

@@ -90,7 +90,6 @@ code {
   border-top: 1px solid var(--color-borde);
 }
 
-/* Fase A: mensaje visible */
 .mensaje {
   margin: 1rem 0 0;
   padding: 0.75rem 1rem;
@@ -99,7 +98,6 @@ code {
   border-radius: 4px;
 }
 
-/* Fase B: mostrar y ocultar */
 .oculto {
   display: none;
 }
@@ -119,7 +117,6 @@ kbd {
   border-radius: 4px;
 }
 
-/* Fase C: tarjetas de características */
 .tarjetas {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -155,7 +152,6 @@ kbd {
   border-radius: 999px;
 }
 
-/* Fase D: búsqueda */
 .buscador {
   display: flex;
   flex-direction: column;

@@ -1,45 +1,42 @@
-// Datos de la página: características principales de Chrome DevTools.
-// Cada objeto tiene nombre, categoría y descripción.
-
 export const caracteristicas = [
   {
     nombre: "Elementos",
     categoria: "HTML y CSS",
-    descripcion: "Inspecciona el árbol DOM y modifica atributos y estilos CSS en vivo para probar cambios sin tocar el código fuente."
+    descripcion: "Ves el HTML de la página y puedes cambiar estilos o atributos al momento para probar cosas sin tocar tus archivos."
   },
   {
     nombre: "Consola",
     categoria: "JavaScript",
-    descripcion: "Muestra mensajes, avisos y errores del script, y permite ejecutar expresiones JavaScript sobre la página abierta."
+    descripcion: "Aquí salen los console.log y los errores del código. También puedes escribir JavaScript y ejecutarlo en la página."
   },
   {
     nombre: "Fuentes",
     categoria: "Depuración",
-    descripcion: "Permite poner puntos de interrupción, avanzar paso a paso y observar el valor de las variables mientras se ejecuta el código."
+    descripcion: "Sirve para poner breakpoints, ir línea a línea y ver qué valor tienen las variables en cada momento."
   },
   {
     nombre: "Red",
     categoria: "Rendimiento",
-    descripcion: "Registra cada petición HTTP con su estado, tipo, tamaño y tiempo de carga; útil para comprobar que se cargan HTML, CSS y módulos."
+    descripcion: "Enseña todas las peticiones que hace la página, con su estado, tamaño y lo que tardan en cargar."
   },
   {
     nombre: "Rendimiento",
     categoria: "Rendimiento",
-    descripcion: "Graba la actividad de la página para encontrar tareas largas, repintados costosos y cuellos de botella en la ejecución."
+    descripcion: "Graba lo que hace la página mientras la usas y te ayuda a ver qué partes van lentas."
   },
   {
     nombre: "Aplicación",
     categoria: "Almacenamiento",
-    descripcion: "Consulta y edita localStorage, sessionStorage, cookies, IndexedDB y los service workers registrados."
+    descripcion: "Para mirar y editar el localStorage, las cookies, IndexedDB o los service workers."
   },
   {
     nombre: "Lighthouse",
     categoria: "Auditoría",
-    descripcion: "Genera un informe de rendimiento, accesibilidad, buenas prácticas y SEO con sugerencias de mejora."
+    descripcion: "Hace un informe con notas de rendimiento, accesibilidad, buenas prácticas y SEO, y dice qué mejorar."
   },
   {
     nombre: "Modo dispositivo",
-    categoria: "Diseño adaptable",
-    descripcion: "Simula pantallas de móvil y tableta, la orientación y conexiones lentas para probar el diseño responsive."
+    categoria: "Responsive",
+    descripcion: "Simula la pantalla de un móvil o una tablet, e incluso una conexión lenta, para probar el diseño."
   }
 ];

@@ -4,85 +4,83 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Radiografía de Chrome DevTools</title>
+  <link rel="icon" href="data:,">
   <link rel="stylesheet" href="css/estilos.css">
   <script type="module" src="js/main.js"></script>
 </head>
 <body>
   <header class="cabecera">
     <h1>Radiografía de Chrome DevTools</h1>
-    <p class="subtitulo">Las herramientas de desarrollo integradas en Google Chrome</p>
+    <p class="subtitulo">Las herramientas para desarrolladores que trae Google Chrome</p>
   </header>
 
   <main class="contenido">
     <section id="que-es" class="bloque" aria-labelledby="titulo-que-es">
       <h2 id="titulo-que-es">¿Qué es Chrome DevTools?</h2>
       <p>
-        Chrome DevTools es un conjunto de herramientas para desarrolladores web integrado
-        directamente en el navegador Google Chrome. Permite inspeccionar y modificar el HTML y
-        el CSS en tiempo real, depurar JavaScript, analizar las peticiones de red y medir el
-        rendimiento de una página sin instalar nada adicional.
+        Son unas herramientas que vienen dentro del propio Chrome y que sirven para ver qué
+        está pasando en una página web. Con ellas puedes mirar y cambiar el HTML y el CSS en
+        directo, buscar errores en el JavaScript, ver qué archivos se descargan y comprobar
+        si la página va lenta. Lo mejor es que no hay que instalar nada.
       </p>
       <button type="button" id="btn-saludo" class="boton">Probar la consola</button>
       <p id="mensaje" class="mensaje" role="status" aria-live="polite">
-        Pulsa el botón para ver un mensaje aquí y otro en la consola.
+        Pulsa el botón y aparecerá un mensaje aquí y otro en la consola.
       </p>
     </section>
 
     <section id="ampliada" class="bloque" aria-labelledby="titulo-ampliada">
-      <h2 id="titulo-ampliada">Información ampliada</h2>
+      <h2 id="titulo-ampliada">Más información</h2>
       <button type="button" id="btn-ampliada" class="boton"
-              aria-expanded="false" aria-controls="info-ampliada">
-        Mostrar información ampliada
-      </button>
+              aria-expanded="false" aria-controls="info-ampliada">Ver más información</button>
 
       <div id="info-ampliada" class="desplegable oculto">
-        <h3>Cómo abrir DevTools</h3>
+        <h3>Cómo se abre</h3>
         <ul>
-          <li>Tecla <kbd>F12</kbd> o <kbd>Ctrl</kbd> + <kbd>Mayús</kbd> + <kbd>I</kbd> (en macOS, <kbd>Cmd</kbd> + <kbd>Opción</kbd> + <kbd>I</kbd>).</li>
-          <li>Clic derecho sobre cualquier elemento y elegir <em>Inspeccionar</em>.</li>
-          <li>Menú de Chrome → <em>Más herramientas</em> → <em>Herramientas para desarrolladores</em>.</li>
+          <li>Con <kbd>F12</kbd> o con <kbd>Ctrl</kbd> + <kbd>Mayús</kbd> + <kbd>I</kbd> (en Mac, <kbd>Cmd</kbd> + <kbd>Opción</kbd> + <kbd>I</kbd>).</li>
+          <li>Haciendo clic derecho en cualquier parte de la página y eligiendo <em>Inspeccionar</em>.</li>
+          <li>Desde el menú de Chrome: <em>Más herramientas</em> y luego <em>Herramientas para desarrolladores</em>.</li>
         </ul>
 
-        <h3>Ventajas</h3>
+        <h3>Por qué está bien usarlo</h3>
         <ul>
-          <li>Viene incluido en Chrome: no requiere instalación.</li>
-          <li>Los cambios en HTML y CSS se ven al instante, sin recargar la página.</li>
-          <li>Permite depurar JavaScript con puntos de interrupción en lugar de llenar el código de <code>console.log</code>.</li>
-          <li>Ayuda a detectar problemas de rendimiento, accesibilidad y red antes de publicar.</li>
+          <li>Ya viene con Chrome, así que no hay que instalar nada.</li>
+          <li>Los cambios de HTML y CSS se ven al momento, sin recargar.</li>
+          <li>Puedes parar el JavaScript con breakpoints en vez de llenar todo de <code>console.log</code>.</li>
+          <li>Te avisa de problemas de rendimiento, accesibilidad o red antes de subir la web.</li>
         </ul>
 
-        <h3>Extensiones que lo amplían</h3>
+        <h3>Extensiones que le añaden cosas</h3>
         <ul>
-          <li><strong>React Developer Tools</strong> y <strong>Vue.js devtools</strong>: añaden paneles para inspeccionar componentes.</li>
-          <li><strong>Lighthouse</strong>: viene integrado y genera auditorías de calidad de la página.</li>
-          <li><strong>axe DevTools</strong>: análisis de accesibilidad más detallado.</li>
+          <li><strong>React Developer Tools</strong> y <strong>Vue.js devtools</strong>, para ver los componentes de esos frameworks.</li>
+          <li><strong>Lighthouse</strong>, que ya viene incluido y hace auditorías de la página.</li>
+          <li><strong>axe DevTools</strong>, para revisar la accesibilidad con más detalle.</li>
         </ul>
       </div>
     </section>
 
     <section id="caracteristicas" class="bloque" aria-labelledby="titulo-caracteristicas">
-      <h2 id="titulo-caracteristicas">Características principales</h2>
+      <h2 id="titulo-caracteristicas">Paneles principales</h2>
       <form class="buscador" role="search" id="form-busqueda">
         <label for="busqueda">Buscar por nombre o descripción</label>
         <input type="search" id="busqueda" name="busqueda"
-               placeholder="Ej.: consola, red, CSS…" autocomplete="off">
+               placeholder="Por ejemplo: consola, red, CSS..." autocomplete="off">
       </form>
       <p id="contador" class="contador" aria-live="polite"></p>
       <p id="sin-resultados" class="sin-resultados oculto">
-        No se ha encontrado ninguna característica que coincida con tu búsqueda. Prueba con otra palabra.
+        No hay ningún panel que coincida con lo que has escrito. Prueba con otra palabra.
       </p>
-      <!-- Las tarjetas se generan desde js/datos.js -->
       <ul id="lista-caracteristicas" class="tarjetas"></ul>
     </section>
 
     <section id="cliente-servidor" class="bloque" aria-labelledby="titulo-cliente-servidor">
       <h2 id="titulo-cliente-servidor">Cliente y servidor</h2>
       <p>
-        El servidor local se limita a entregar archivos estáticos: <code>index.html</code>, la hoja
-        de estilos y los módulos JavaScript. El cliente (el navegador) interpreta el HTML, aplica
-        el CSS, descarga los módulos que importa <code>main.js</code> y ejecuta todo el código de
-        interacción: eventos, generación de tarjetas y filtrado. En la pestaña <strong>Red</strong>
-        de DevTools se comprueba que cada archivo se pide al servidor y responde con estado 200.
+        El servidor local solo manda los archivos: <code>index.html</code>, el CSS y los módulos de
+        JavaScript. Todo lo demás lo hace el navegador, que es el cliente: lee el HTML, aplica los
+        estilos, carga los módulos que importa <code>main.js</code> y ejecuta el código de los botones,
+        las tarjetas y el buscador. En la pestaña <strong>Red</strong> de DevTools se ve cómo se pide
+        cada archivo y que todos devuelven un 200.
       </p>
     </section>
   </main>
