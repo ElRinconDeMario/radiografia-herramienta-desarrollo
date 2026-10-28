@@ -62,6 +62,15 @@
 
     <section id="caracteristicas" class="bloque" aria-labelledby="titulo-caracteristicas">
       <h2 id="titulo-caracteristicas">Características principales</h2>
+      <form class="buscador" role="search" id="form-busqueda">
+        <label for="busqueda">Buscar por nombre o descripción</label>
+        <input type="search" id="busqueda" name="busqueda"
+               placeholder="Ej.: consola, red, CSS…" autocomplete="off">
+      </form>
+      <p id="contador" class="contador" aria-live="polite"></p>
+      <p id="sin-resultados" class="sin-resultados oculto">
+        No se ha encontrado ninguna característica que coincida con tu búsqueda. Prueba con otra palabra.
+      </p>
       <!-- Las tarjetas se generan desde js/datos.js -->
       <ul id="lista-caracteristicas" class="tarjetas"></ul>
     </section>

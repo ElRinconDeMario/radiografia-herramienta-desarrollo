@@ -46,3 +46,30 @@ function crearTarjeta({ nombre, categoria, descripcion }) {
 export function pintarCaracteristicas(lista, caracteristicas) {
   lista.replaceChildren(...caracteristicas.map(crearTarjeta));
 }
+
+/**
+ * Pasa a minúsculas y quita tildes para que "aplicacion" encuentre "Aplicación".
+ */
+function normalizar(texto) {
+  return texto.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
+/**
+ * Devuelve las características cuyo nombre o descripción contienen el texto buscado.
+ */
+export function filtrarCaracteristicas(caracteristicas, busqueda) {
+  const termino = normalizar(busqueda.trim());
+  if (termino === "") return caracteristicas;
+
+  return caracteristicas.filter(({ nombre, descripcion }) =>
+    normalizar(nombre).includes(termino) || normalizar(descripcion).includes(termino)
+  );
+}
+
+/**
+ * Actualiza el contador y muestra el aviso cuando no hay resultados.
+ */
+export function actualizarEstadoBusqueda(contador, avisoSinResultados, mostradas, total) {
+  contador.textContent = `Mostrando ${mostradas} de ${total} características.`;
+  avisoSinResultados.classList.toggle("oculto", mostradas > 0);
+}

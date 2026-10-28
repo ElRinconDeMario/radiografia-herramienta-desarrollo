@@ -154,3 +154,36 @@ kbd {
   background: #e8f0fe;
   border-radius: 999px;
 }
+
+/* Fase D: búsqueda */
+.buscador {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  max-width: 420px;
+}
+
+.buscador label {
+  font-weight: 600;
+}
+
+.buscador input {
+  padding: 0.55rem 0.75rem;
+  font: inherit;
+  border: 1px solid var(--color-borde);
+  border-radius: 6px;
+}
+
+.contador {
+  margin: 0.75rem 0 0;
+  font-size: 0.9rem;
+  color: var(--color-suave);
+}
+
+.sin-resultados {
+  margin: 1rem 0 0;
+  padding: 0.75rem 1rem;
+  background: #fce8e6;
+  border-left: 4px solid #d93025;
+  border-radius: 4px;
+}
