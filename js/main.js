@@ -1,10 +1,12 @@
-import { mostrarMensaje, alternarSeccion } from "./interfaz.js";
+import { caracteristicas } from "./datos.js";
+import { mostrarMensaje, alternarSeccion, pintarCaracteristicas } from "./interfaz.js";
 
 // --- Selección de elementos ---
 const botonSaludo = document.querySelector("#btn-saludo");
 const mensaje = document.querySelector("#mensaje");
 const botonAmpliada = document.querySelector("#btn-ampliada");
 const infoAmpliada = document.querySelector("#info-ampliada");
+const listaCaracteristicas = document.querySelector("#lista-caracteristicas");
 
 // --- Fase A: dos manejadores para el mismo clic ---
 let pulsaciones = 0;
@@ -27,3 +29,6 @@ botonSaludo.addEventListener("click", (evento) => {
 botonAmpliada.addEventListener("click", () => {
   alternarSeccion(botonAmpliada, infoAmpliada);
 });
+
+// --- Fase C: tarjetas generadas desde el array de datos ---
+pintarCaracteristicas(listaCaracteristicas, caracteristicas);
